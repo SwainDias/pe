@@ -1,27 +1,43 @@
-# Q7. Bag of Words
-
 sentences = [
     "the cat sat on the mat",
     "the dog sat on the log",
     "the cat chased the dog"
 ]
 
-# Build vocabulary
+# Step 1: Build vocabulary
 vocab = []
+
 for sentence in sentences:
-    for word in sentence.split():
+    words = sentence.split()
+
+    for word in words:
         if word not in vocab:
             vocab.append(word)
+
 vocab.sort()
 
-print("Vocabulary:", vocab)
+print("Vocabulary:")
+print(vocab)
 print()
 
-# Build BoW matrix
+# Step 2: Build Bag of Words matrix
+
 for sentence in sentences:
+
+    words = sentence.split()
+
     row = []
-    for word in vocab:
-        row.append(sentence.split().count(word))
-    print(sentence)
-    print(row)
+
+    for vocab_word in vocab:
+
+        count = 0
+
+        for word in words:
+            if word == vocab_word:
+                count += 1
+
+        row.append(count)
+
+    print("Sentence:", sentence)
+    print("BoW Row :", row)
     print()
