@@ -1,0 +1,69 @@
+Q1. Tokenization Task
+Given a paragraph, write a Python program (without external APIs) to:
+•	Split text into sentences 
+•	Split sentences into words 
+•	Count total tokens
+Q2. Stopword Removal (Manual List)
+Given a sentence and a predefined list of stopwords:
+•	Remove stopwords manually (without using online libraries) 
+•	Display cleaned text
+Q3. Stemming vs Lemmatization (Rule-based)
+•	Implement a simple rule-based stemmer (remove suffixes like -ing, -ed)
+Q4. Morphological Analysis
+Break the following words into morphemes and classify as:
+•	Free morpheme 
+•	Bound morpheme 
+Words: unhappiness, replayed, international
+Q5. Part-of-Speech Tagging (Rule-based)
+Given a sentence:
+•	Assign POS tags using simple rules
+(e.g., words ending in -ly → adverb)
+Q6. Ambiguity Detection
+Classify the following sentence as:
+•	Syntactic ambiguity 
+•	Semantic ambiguity
+
+Q7. Bag of Words Implementation
+Given 3 sentences:
+•	Create vocabulary manually 
+•	Construct Bag-of-Words matrix
+Q8. TF-IDF Calculation (Manual)
+For a given document:
+•	Compute Term Frequency (TF) of each word 
+•	Display in tabular format
+Q9. Cosine Similarity (Manual Calculation)
+Given two vectors:
+•	Compute cosine similarity manually
+Q11. Naive Bayes Classification (Numerical Problem)
+Given:
+•	Word probabilities per class 
+•	A test sentence
+Q12. Hidden Markov Model (HMM) Basics
+Given:
+•	Transition and emission probabilities
+
+Q13. N-gram Text Generation
+Write a Python program to:
+•	Generate text using bigram probabilities
+Q14. BLEU Score 
+Given:
+•	Reference sentence 
+•	Candidate sentence
+Q15. Regex-based Text Cleaning
+Write a Python program using regular expressions to:
+•	Remove punctuation 
+•	Remove numbers 
+•	Convert text to lowercase
+Q16. Context-Free Grammar (CFG) Parsing
+Given a simple grammar:
+•	Check whether a sentence is valid or not
+Q17. Chunking (Rule-based)
+Write rules to identify:
+•	Noun phrases (NP)
+Example: (Det + Adj + Noun)
+Q18. Using  RNN perform sentiment analysis on movie reviews corpus of NLTK
+Q19. Information extraction using named entity
+
+
+
+
