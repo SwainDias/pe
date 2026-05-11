@@ -54,3 +54,86 @@ for sentence in sentences:
     print("Type     :", ambiguity_type)
     print("Reason   :", reason)
     print()
+
+
+
+#OR
+
+import nltk
+from nltk.corpus import wordnet as wn
+from nltk.tokenize import word_tokenize
+from nltk import pos_tag
+
+# Run once
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
+
+# Convert NLTK POS -> WordNet POS
+def wn_pos(tag):
+    if tag.startswith('N'):
+        return wn.NOUN
+    if tag.startswith('V'):
+        return wn.VERB
+    if tag.startswith('J'):
+        return wn.ADJ
+    if tag.startswith('R'):
+        return wn.ADV
+    return None
+
+def semantic_ambiguity(sentence):
+
+    tokens = word_tokenize(sentence)
+    tagged = pos_tag(tokens)
+
+    ambiguous = []
+
+    for word, tag in tagged:
+
+        pos = wn_pos(tag)
+
+        if not pos:
+            continue
+
+        # meanings for this POS only
+        synsets = wn.synsets(word, pos=pos)
+
+        # ambiguous if multiple meanings exist
+        if len(synsets) > 1:
+
+            meanings = [s.definition() for s in synsets[:3]]
+
+            ambiguous.append({
+                "word": word,
+                "meanings": meanings
+            })
+
+    return ambiguous
+
+
+# Test
+sentences = [
+    "The bank was steep",
+    "He saw her duck",
+    "I watched the match"
+]
+
+for s in sentences:
+
+    print("\nSentence:", s)
+
+    result = semantic_ambiguity(s)
+
+    if result:
+
+        print("Semantic ambiguity detected:\n")
+
+        for item in result:
+
+            print("Word:", item["word"])
+
+            for m in item["meanings"]:
+                print(" -", m)
+
+    else:
+        print("No ambiguity found")
